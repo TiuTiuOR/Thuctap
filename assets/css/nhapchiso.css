@@ -1,0 +1,19 @@
+
+    .btn-submit {
+        background-color: #4CAF50; 
+        color: white;
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        margin-right: 10px; 
+    }
+
+    .btn-submit:hover {
+        background-color: #45a049; 
+    }
+
+    .btn-submit:disabled {
+        background-color: #dddddd;
+        cursor: not-allowed; 
+    }

@@ -1,0 +1,6 @@
+{
+    "require": {
+        "pear/numbers_words": "^0.18.2",
+        "stichoza/google-translate-php": "^5.1"
+    }
+}
