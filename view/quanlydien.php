@@ -85,8 +85,7 @@ if(isset($_GET['p'])){
                         if($dienke['trangthai'] == 1){
                             $status_dk = "Còn sử dụng";
                             echo "<td>".$status_dk."</td>
-                            <td><input type='radio' name='selected_id' />
-                            <input type='hidden' name='selected_iddk' value='".$dienke['madk']."'/>
+                            <td><input type='radio' name='selected_id' value='".$dienke['madk']."'/>
                             </td>";
                         }else{
                             $status_dk = "Đã ngừng sử dụng";

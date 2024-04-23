@@ -30,10 +30,12 @@ if(isset($_GET['p'])){
     $filteredCustomers = array_filter($data['khachhang'], function ($khachhang) {
         return isset($khachhang['makh']);
     });
+
     // xếp mảng giảm dần theo mã
     usort($filteredCustomers, function($a, $b) {
         return $b['makh'] <=> $a['makh'];
     });
+
     // lấy sl dữ liệu của khách hàng
     $totalCustomers = count($filteredCustomers);
     // tính trang
@@ -65,7 +67,6 @@ if(isset($_GET['p'])){
                         <div id='dienke_container_".$khachhang['makh']."'>";
             if(isset($khachhang['dienke']) && !empty($khachhang['dienke'])) {
                 echo "<h2>Thông tin điện kế Mã khách hàng: ".$khachhang['makh']."</h2>
-                    <form id='dienke' method='post' action=''> 
                         <table id='dienke_table_".$khachhang['makh']."'>
                             <tr>
                                 <th>Mã ĐK</th>
@@ -90,13 +91,23 @@ if(isset($_GET['p'])){
                         }
                         echo "
                         <td>".$status_dk."</td>
-                        <td> Btn sửa</td>
-                        <td> Btn xóa</td>
+                        <td>                                
+                        <form method='post' action='../controller/dienke.php?act=suadienke'>
+                        <input type='hidden' name='madk' value='".$dienke['madk']."'>
+                        <button type='submit' name='editDienKe'>Sửa</button>
+                    </form>
+                    
+                        </td>
+                        <td>
+                            <form method='post' action='../controller/dienke.php?act=xoadienke'>
+                                <input type='hidden' name='madk' value='".$dienke['madk']."'>
+                                <button type='submit' name='deleteDienKe'>Xóa</button>
+                            </form>
+                        </td>
                         </tr>
                         ";
                     }
                 echo "</table>
-                        </form>
                         <br>
                         <input type='submit' name='addDienKe' id='addDienKe' value='Thêm điện kế mới' onclick=\"addNewDienKe(".$khachhang['makh'].")\">";                        
             }else{

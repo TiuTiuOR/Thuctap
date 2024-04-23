@@ -52,8 +52,8 @@
                 $result1 = showGiaHienHanh();
 
                 //check ngày lập vs chỉ số cũ
-                if(isset($_POST['selected_iddk'])){
-                $a= $_POST['selected_iddk'];
+                if(isset($_POST['selected_id'])){
+                $a= $_POST['selected_id'];
                 if(isset($a)){
                 $show_csc_and_datehd = show_Data_HD_ID($a);
                 if($show_csc_and_datehd){
@@ -140,7 +140,7 @@
                                 echo '<td>' . $row['densokw'] . '</td>';
                                 echo '<td>' . $row['dongia'] . '</td>';
                                 
-                                if($ketqua < $row['tusokw'] && $row['densokw'] == null){
+                                if($ketqua < $row['tusokw'] || ($ketqua < $row['tusokw'] && $row['densokw'] == null)){
                                         $thanhtienshow = 0;
                                     echo '<td> 0 </td>';
                                 }else if($ketqua < $row['densokw']){
@@ -251,7 +251,7 @@
                                         $tong_tien = 0;
                                         foreach ($star_tinh as $row) {
                                             $mabac_add = $row['mabac'];
-                                        if($ketqua < $row['tusokw'] && $row['densokw'] == null){
+                                        if($ketqua < $row['tusokw'] || ($ketqua < $row['tusokw'] && $row['densokw'] == null)){
                                                 $thanhtienshow = 0;
                                         }else if($ketqua < $row['densokw']){
                                             if($row['tusokw'] != 0){
